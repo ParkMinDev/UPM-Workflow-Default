@@ -7,14 +7,12 @@ using UnityEngine;
 
 namespace ParkMinPackages.Workflow.Default.Editor.BuildSettings
 {
-
 	public class BuildSettingProfile : ScriptableObject
 	{
 		const string CreateMenuPath = "Assets/" + nameof(ParkMinPackages) + "/Create/Build Settings Profile";
 
 		[MenuItem(CreateMenuPath, priority = 20)]
-		static void CreateProfile()
-		{
+		static void CreateProfile() {
 			ProjectWindowUtil.CreateAsset(
 				CreateInstance<BuildSettingProfile>(),
 				"BuildSettingProfile.asset"

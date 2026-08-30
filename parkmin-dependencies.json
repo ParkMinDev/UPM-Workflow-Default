@@ -3,12 +3,12 @@
   "gitDependencies": [
     {
       "packageName": "com.parkminpackages.foundation",
-      "version": "6.0.0",
+      "version": "10.0.0",
       "url": "https://github.com/ParkMinPackages/Foundation.git"
     },
     {
       "packageName": "com.parkminpackages.ugui",
-      "version": "12.2.1",
+      "version": "13.0.0",
       "url": "https://github.com/ParkMinPackages/UGUI.git"
     },
     {

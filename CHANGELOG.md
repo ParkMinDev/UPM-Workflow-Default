@@ -4,6 +4,22 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [10.0.0] - 2026-08-30
+
+### Breaking Changes
+- Replaced the reusable UI flow interfaces, `UIFlowExtensions`, and `ShowHideUI` with owner-based feature components.
+- Moved feature attachment helpers onto `Actor` and changed actor feature initialization to the shared Foundation feature lifecycle.
+
+### Added
+- Added features for show and hide transitions, timed display, confirmation, yes-or-no input, text messages, and bottom-up RectTransform layout rebuilding.
+- Added `Project Structure` and `UI Prefabs` as importable Package Manager samples.
+
+### Changed
+- Updated Foundation to `10.0.0` and UGUI to `13.0.0`.
+
+### Removed
+- Removed the legacy `.unitypackage` presets and their export profile utility.
+
 ## [9.1.4] - 2026-08-20
 
 ### Changed

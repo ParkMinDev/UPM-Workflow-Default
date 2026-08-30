@@ -1,21 +1,21 @@
 {
-    "name": "ParkMinPackages.Workflow.Default",
-    "rootNamespace": "ParkMinPackages.Workflow.Default",
-    "references": [
-        "GUID:71a72178c26810b4fb6e1516407e5558",
-        "GUID:529eb8310bc2c4a44a1831a13f882fe4",
-        "GUID:77221876cc6b8244180b96e320b1bcd4",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:65081b640df1ff54ba0a5e5767fc1e01",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+  "name": "ParkMinPackages.Workflow.Default",
+  "rootNamespace": "ParkMinPackages.Workflow.Default",
+  "references": [
+    "GUID:71a72178c26810b4fb6e1516407e5558",
+    "GUID:529eb8310bc2c4a44a1831a13f882fe4",
+    "GUID:77221876cc6b8244180b96e320b1bcd4",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:65081b640df1ff54ba0a5e5767fc1e01",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

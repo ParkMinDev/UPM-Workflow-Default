@@ -14,7 +14,7 @@ namespace ParkMinPackages.Workflow.Default.Components
 	[DefaultExecutionOrder(-10)]
 	public class Actor : ExtendedBehaviour
 	{
-		// ===================== Static storages =====================
+		// - Statics -
 		// 타입(구체/부모/인터페이스) -> 인스턴스 집합
 		static readonly Dictionary<Type, HashSet<Actor>> _cacheDic = new Dictionary<Type, HashSet<Actor>>();
 
@@ -59,7 +59,6 @@ namespace ParkMinPackages.Workflow.Default.Components
 			_typeClosureCache[concrete] = built;
 			return built;
 		}
-		// ===================== Initialize =====================
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 		static void SubsystemRegistrationInit() {
 			_cacheDic.Clear();
@@ -88,7 +87,6 @@ namespace ParkMinPackages.Workflow.Default.Components
 			}
 		}
 
-		// ===================== Public API =====================
 		public static IDisposable SubscribeAction<T>(UnityAction<T> callback) where T : class {
 			if (callback == null) throw new ArgumentNullException(nameof(callback));
 
@@ -191,8 +189,14 @@ namespace ParkMinPackages.Workflow.Default.Components
 			}
 		}
 
-		// ===================== MonoBehaviour hooks =====================
+		// - Public Properties -
+		public string ID
+		{
+			get { return _id; }
+			set { _id = value; }
+		}
 
+		// - Handler -
 		protected virtual void Awake() {
 			Register();
 		}
@@ -208,17 +212,10 @@ namespace ParkMinPackages.Workflow.Default.Components
 		}
 #endif
 
-		// ===================== Instance fields =====================
+		// - Private & Protected -
 		[SerializeField] protected string _id;
 		bool _isRegistered;
 
-		public string ID
-		{
-			get { return _id; }
-			set { _id = value; }
-		}
-
-		// ===================== Register/Unregister =====================
 		void Register() {
 			if (_isRegistered) return;
 			_isRegistered = true;

@@ -1,7 +1,7 @@
 {
   "name": "com.parkminpackages.workflow.default",
   "displayName": "ParkMinPackages.Workflow.Default",
-  "version": "9.1.4",
+  "version": "10.0.0",
   "license": "MIT",
   "documentationUrl": "https://github.com/ParkMinPackages/Workflow-Default#readme",
   "changelogUrl": "https://github.com/ParkMinPackages/Workflow-Default/blob/main/CHANGELOG.md",
@@ -12,6 +12,18 @@
     "com.unity.inputsystem": "1.19.0",
     "com.unity.ugui": "2.0.0"
   },
+  "samples": [
+    {
+      "displayName": "Project Structure",
+      "description": "A starter project structure, scene, and common prefabs.",
+      "path": "Samples~/Project Structure"
+    },
+    {
+      "displayName": "UI Prefabs",
+      "description": "Reusable UI prefabs for Workflow.Default.",
+      "path": "Samples~/UI Prefabs"
+    }
+  ],
   "author": {
     "name": "ParkMinPackages",
     "url": "https://github.com/ParkMinPackages"

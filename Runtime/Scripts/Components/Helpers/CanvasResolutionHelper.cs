@@ -1,8 +1,8 @@
+using UnityEngine;
+using UnityEngine.UI;
 #if ODIN_INSPECTOR
 using Sirenix.OdinInspector;
 #endif
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace ParkMinPackages.Workflow.Default.Components.Helpers
 {
