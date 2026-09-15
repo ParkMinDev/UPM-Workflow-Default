@@ -4,13 +4,6 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [10.1.0] - 2026-09-15
-
-### Changed
-- Delegated show and hide transition cancellation ownership to `UIActivator` instead of retaining a feature-local token source.
-- Made timed display cancel its delay on the next activation request and apply explicit animation cancellation behavior.
-- Updated Foundation to `10.2.0` and UGUI to `15.0.0`.
-
 ## [10.0.0] - 2026-08-30
 
 ### Breaking Changes
