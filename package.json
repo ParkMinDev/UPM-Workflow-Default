@@ -1,7 +1,7 @@
 {
   "name": "com.parkminpackages.workflow.default",
   "displayName": "ParkMinPackages.Workflow.Default",
-  "version": "10.0.0",
+  "version": "10.0.1",
   "license": "MIT",
   "documentationUrl": "https://github.com/ParkMinPackages/Workflow-Default#readme",
   "changelogUrl": "https://github.com/ParkMinPackages/Workflow-Default/blob/main/CHANGELOG.md",
