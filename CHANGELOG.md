@@ -4,6 +4,12 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [10.0.3] - 2026-10-01
+
+### Changed
+- Reorganized the Project Structure sample: renamed 01_Scenes to Scenes, moved shared asset and script folders out of General, and grouped reusable prefabs under Prefabs/General while preserving asset contents and GUIDs.
+- Added folder metadata for the Project Structure and UI Prefabs samples.
+
 ## [10.0.2] - 2026-10-01
 
 ### Fixed
