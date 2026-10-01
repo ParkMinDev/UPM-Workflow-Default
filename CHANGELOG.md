@@ -4,6 +4,12 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [10.0.4] - 2026-10-01
+
+### Changed
+- Standardized the Project Structure sample to the requested 15 top-level folders, replacing the empty Audio and Models folders with the new content categories.
+- Added folder metadata and .gitkeep files to preserve the new empty sample directories in Git.
+
 ## [10.0.3] - 2026-10-01
 
 ### Changed
