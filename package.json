@@ -1,13 +1,13 @@
 {
-  "name": "com.parkminpackages.workflow.default",
-  "displayName": "ParkMinPackages.Workflow.Default",
-  "version": "10.0.6",
+  "name": "com.parkmindev.upm.workflow.default",
+  "displayName": "ParkMinDev.UPM.Workflow.Default",
+  "version": "10.0.7",
   "license": "MIT",
   "documentationUrl": "https://github.com/ParkMinDev/UPM-Workflow-Default#readme",
   "changelogUrl": "https://github.com/ParkMinDev/UPM-Workflow-Default/blob/main/CHANGELOG.md",
   "licensesUrl": "https://github.com/ParkMinDev/UPM-Workflow-Default/blob/main/LICENSE.md",
   "unity": "6000.5",
-  "description": "The default Unity project workflow, structure, and reusable setup conventions maintained by ParkMinPackages.",
+  "description": "The default Unity project workflow, structure, and reusable setup conventions maintained by ParkMinDev.",
   "dependencies": {
     "com.unity.inputsystem": "1.19.0",
     "com.unity.ugui": "2.0.0"
@@ -25,7 +25,7 @@
     }
   ],
   "author": {
-    "name": "ParkMinPackages",
+    "name": "ParkMinDev",
     "url": "https://github.com/ParkMinDev"
   }
 }
