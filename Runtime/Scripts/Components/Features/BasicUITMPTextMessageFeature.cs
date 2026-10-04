@@ -1,13 +1,14 @@
 using System;
-using ParkMinPackages.Foundation.Components;
-using ParkMinPackages.Foundation.Constants;
-using ParkMinPackages.Workflow.Default.Components.UIs;
-using ParkMinPackages.Workflow.Default.Interfaces;
+using ParkMinDev.UPM.Foundation.Components;
+using ParkMinDev.UPM.Foundation.Constants;
+using ParkMinDev.UPM.Workflow.Default.Components.UIs;
+using ParkMinDev.UPM.Workflow.Default.Interfaces;
 using TMPro;
 using UnityEngine;
 
-namespace ParkMinPackages.Workflow.Default.Components.Features
+namespace ParkMinDev.UPM.Workflow.Default.Components.Features
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.Features", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "BasicUITMPTextMessageFeature")]
 	[RequireComponent(typeof(BasicUI))]
 	public sealed class BasicUITMPTextMessageFeature : Feature<BasicUI>
 	{

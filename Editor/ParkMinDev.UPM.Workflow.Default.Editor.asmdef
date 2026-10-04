@@ -1,6 +1,6 @@
 {
-  "name": "ParkMinPackages.Workflow.Default.Editor",
-  "rootNamespace": "ParkMinPackages.Workflow.Default.Editor",
+  "name": "ParkMinDev.UPM.Workflow.Default.Editor",
+  "rootNamespace": "ParkMinDev.UPM.Workflow.Default.Editor",
   "references": [
     "GUID:bb176cf1d663ca749a0ada78a72f5c2b"
   ],

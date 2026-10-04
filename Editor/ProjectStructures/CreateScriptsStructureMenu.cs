@@ -4,12 +4,12 @@ using UnityEditor;
 using UnityEngine;
 using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
-namespace ParkMinPackages.Workflow.Default.Editor.ProjectStructures
+namespace ParkMinDev.UPM.Workflow.Default.Editor.ProjectStructures
 {
 	internal static class CreateScriptsStructureMenu
 	{
-		const string ScriptsMenuPath = "Assets/" + nameof(ParkMinPackages) + "/Create/Scripts Folder Structure";
-		const string DomainMenuPath = "Assets/" + nameof(ParkMinPackages) + "/Create/Domain Folder Structure";
+		const string ScriptsMenuPath = "Assets/" + nameof(ParkMinDev) + "/Create/Scripts Folder Structure";
+		const string DomainMenuPath = "Assets/" + nameof(ParkMinDev) + "/Create/Domain Folder Structure";
 
 		static readonly string[] ScriptsFolderPaths =
 		{

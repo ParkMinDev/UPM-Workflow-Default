@@ -1,6 +1,6 @@
 using Sirenix.OdinInspector;
 
-namespace ParkMinPackages.Workflow.Default.Objects
+namespace ParkMinDev.UPM.Workflow.Default.Objects
 {
 	public static class PrefabKindGroups
 	{

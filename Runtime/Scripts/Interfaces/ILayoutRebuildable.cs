@@ -1,4 +1,4 @@
-namespace ParkMinPackages.Workflow.Default.Interfaces
+namespace ParkMinDev.UPM.Workflow.Default.Interfaces
 {
 	public interface ILayoutRebuildable
 	{

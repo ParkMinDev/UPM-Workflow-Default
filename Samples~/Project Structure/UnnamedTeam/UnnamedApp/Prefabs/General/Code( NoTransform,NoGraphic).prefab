@@ -155,6 +155,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c809782ee4114b78ae9d494499bfff04, type: 3}
   m_Name:
-  m_EditorClassIdentifier: ParkMinPackages.Foundation::ParkMinPackages.Foundation.Components.InstantiateOnceOnRuntime
+  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.InstantiateOnceOnRuntime
   _prefabs:
   - {fileID: 5788614640552236066, guid: 89d7b2c2adab5ad4db0874efc2db0d06, type: 3}

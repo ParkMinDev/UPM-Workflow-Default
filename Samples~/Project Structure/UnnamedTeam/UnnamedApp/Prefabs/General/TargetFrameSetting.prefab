@@ -43,7 +43,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63f045688c9c46e3ad6f2254a714f89d, type: 3}
   m_Name:
-  m_EditorClassIdentifier: ParkMinPackages.Foundation::ParkMinPackages.Foundation.Components.TargetFrameSetting
+  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.TargetFrameSetting
   windowsTargetFrameRate: 3000
   androidTargetFrameRate: 3000
   webGLTargetFrameRate: 3000

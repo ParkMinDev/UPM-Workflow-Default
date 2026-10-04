@@ -5,11 +5,12 @@ using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
 
-namespace ParkMinPackages.Workflow.Default.Editor.BuildSettings
+namespace ParkMinDev.UPM.Workflow.Default.Editor.BuildSettings
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Editor.BuildSettings", sourceAssembly: "ParkMinPackages.Workflow.Default.Editor", sourceClassName: "BuildSettingProfile")]
 	public class BuildSettingProfile : ScriptableObject
 	{
-		const string CreateMenuPath = "Assets/" + nameof(ParkMinPackages) + "/Create/Build Settings Profile";
+		const string CreateMenuPath = "Assets/" + nameof(ParkMinDev) + "/Create/Build Settings Profile";
 
 		[MenuItem(CreateMenuPath, priority = 20)]
 		static void CreateProfile() {
@@ -131,6 +132,7 @@ namespace ParkMinPackages.Workflow.Default.Editor.BuildSettings
 		protected SerializableEditorBuildSettingsScene[] scenes =
 			Array.Empty<SerializableEditorBuildSettingsScene>();
 
+		[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Editor.BuildSettings", sourceAssembly: "ParkMinPackages.Workflow.Default.Editor", sourceClassName: "BuildSettingProfile+SerializableEditorBuildSettingsScene")]
 		[Serializable]
 		protected class SerializableEditorBuildSettingsScene
 		{

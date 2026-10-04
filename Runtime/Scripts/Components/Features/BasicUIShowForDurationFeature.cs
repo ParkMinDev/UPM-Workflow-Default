@@ -1,13 +1,14 @@
-﻿using System;
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using ParkMinPackages.Foundation.Components;
-using ParkMinPackages.UGUI.Enums;
-using ParkMinPackages.Workflow.Default.Components.UIs;
+using ParkMinDev.UPM.Foundation.Components;
+using ParkMinDev.UPM.UGUI.Enums;
+using ParkMinDev.UPM.Workflow.Default.Components.UIs;
 using UnityEngine;
 
-namespace ParkMinPackages.Workflow.Default.Components.Features
+namespace ParkMinDev.UPM.Workflow.Default.Components.Features
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.Features", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "BasicUIShowForDurationFeature")]
 	[RequireComponent(typeof(BasicUI))]
 	public sealed class BasicUIShowForDurationFeature : Feature<BasicUI>
 	{

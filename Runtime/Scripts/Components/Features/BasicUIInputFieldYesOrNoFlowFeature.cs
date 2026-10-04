@@ -1,15 +1,16 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using ParkMinPackages.Foundation.Components;
-using ParkMinPackages.Foundation.Constants;
-using ParkMinPackages.Workflow.Default.Enums;
-using ParkMinPackages.Workflow.Default.Interfaces;
+using ParkMinDev.UPM.Foundation.Components;
+using ParkMinDev.UPM.Foundation.Constants;
+using ParkMinDev.UPM.Workflow.Default.Enums;
+using ParkMinDev.UPM.Workflow.Default.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ParkMinPackages.Workflow.Default.Components.Features
+namespace ParkMinDev.UPM.Workflow.Default.Components.Features
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.Features", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "BasicUIInputFieldYesOrNoFlowFeature")]
 	[RequireComponent(typeof(BasicUIYesOrNoFlowFeature))]
 	public sealed class BasicUIInputFieldYesOrNoFlowFeature : Feature<BasicUIYesOrNoFlowFeature>
 	{

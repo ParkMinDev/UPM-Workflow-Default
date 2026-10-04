@@ -4,8 +4,9 @@ using UnityEngine.UI;
 using Sirenix.OdinInspector;
 #endif
 
-namespace ParkMinPackages.Workflow.Default.Components.Helpers
+namespace ParkMinDev.UPM.Workflow.Default.Components.Helpers
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.Helpers", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "CanvasResolutionHelper")]
 	public class CanvasResolutionHelper : MonoBehaviour
 	{
 #if ODIN_INSPECTOR

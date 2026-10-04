@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ParkMinPackages.Foundation.Components;
+using ParkMinDev.UPM.Foundation.Components;
 using R3;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 
-namespace ParkMinPackages.Workflow.Default.Components
+namespace ParkMinDev.UPM.Workflow.Default.Components
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "Actor")]
 	[DisallowMultipleComponent]
 	[DefaultExecutionOrder(-10)]
 	public class Actor : ExtendedBehaviour

@@ -1,8 +1,9 @@
 using System.ComponentModel;
-using ParkMinPackages.Foundation.Components;
+using ParkMinDev.UPM.Foundation.Components;
 
-namespace ParkMinPackages.Workflow.Default.Components
+namespace ParkMinDev.UPM.Workflow.Default.Components
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "Binder`1")]
 	public class Binder<T> : ExtendedBehaviour where T : class, INotifyPropertyChanged
 	{
 		public void Bind(T value) {

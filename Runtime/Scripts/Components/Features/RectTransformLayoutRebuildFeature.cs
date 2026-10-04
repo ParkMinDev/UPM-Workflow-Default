@@ -1,11 +1,12 @@
 using System;
-using ParkMinPackages.Foundation.Components;
-using ParkMinPackages.Workflow.Default.Interfaces;
+using ParkMinDev.UPM.Foundation.Components;
+using ParkMinDev.UPM.Workflow.Default.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ParkMinPackages.Workflow.Default.Components.Features
+namespace ParkMinDev.UPM.Workflow.Default.Components.Features
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.Features", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "RectTransformLayoutRebuildFeature")]
 	public sealed class RectTransformLayoutRebuildFeature : Feature<RectTransform>, ILayoutRebuildable
 	{
 		// - Public Methods -

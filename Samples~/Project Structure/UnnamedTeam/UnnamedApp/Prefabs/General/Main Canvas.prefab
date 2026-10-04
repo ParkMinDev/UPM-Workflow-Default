@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e6932e13e0a4a1daf75a1ba331b32cd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ParkMinPackages.Workflow.Default::ParkMinPackages.Workflow.Default.Components.UIs.UIRoot
+  m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.UIRoot
   _id: 
 --- !u!1 &3082050462549471136
 GameObject:
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b70d387ce83448e88fe2b83ddfd90d74, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ParkMinPackages.Workflow.Default::ParkMinPackages.Workflow.Default.Components.Helpers.CanvasResolutionHelper
+  m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.Helpers.CanvasResolutionHelper
   _canvasScaler: {fileID: 1616794793455016123}
   _uiRoot: {fileID: 8743001492809117607}
   _windowBox: {fileID: 6712212943918709704}
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc412e88a634fe9a302ab24a4f82ce9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ParkMinPackages.Foundation::ParkMinPackages.Foundation.Components.SceneVisibilityLocker
+  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.SceneVisibilityLocker
   _hierarchyExpansionController:
     _enabled: 0
     _targetChild: {fileID: 0}

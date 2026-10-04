@@ -1,8 +1,9 @@
-using ParkMinPackages.UGUI.Components;
+using ParkMinDev.UPM.UGUI.Components;
 using UnityEngine;
 
-namespace ParkMinPackages.Workflow.Default.Components.UIs
+namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 {
+	[UnityEngine.Scripting.APIUpdating.MovedFrom(true, sourceNamespace: "ParkMinPackages.Workflow.Default.Components.UIs", sourceAssembly: "ParkMinPackages.Workflow.Default", sourceClassName: "BasicUI")]
 	[RequireComponent(typeof(UIActivator))]
 	public class BasicUI : Actor
 	{
