@@ -4,6 +4,15 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [12.0.0] - 2026-10-26
+
+### Added
+- Add UIRoot child-size authoring action and canvas-camera, single-display UI and dual-display UI sample prefabs.
+
+### Changed
+- Breaking: replace the Main Canvas sample path with Canvas while preserving its asset GUID.
+- Align exact dependencies to Foundation 12.0.0 and UGUI 16.1.1; UI sample cleanup uses Foundation DestroyOnAwake.
+
 ## [11.0.2] - 2026-10-19
 
 ### Changed

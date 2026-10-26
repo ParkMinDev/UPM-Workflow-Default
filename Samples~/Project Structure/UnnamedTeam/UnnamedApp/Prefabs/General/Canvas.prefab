@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 5384415640236387496}
   - component: {fileID: 2822779627048710984}
   m_Layer: 0
-  m_Name: Main Canvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,9 +324,9 @@ Canvas:
   m_GameObject: {fileID: 3238273914173513680}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -450,12 +450,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.SceneVisibilityLocker
   _hierarchyExpansionController:
     _enabled: 0
+    _targetChildren: []
     _targetChild: {fileID: 0}
-    _applyOnSceneOpen: 0
-  _sceneVisibilityController:
-    _enabled: 1
+  _sceneVisibilityControllers:
+  - _target: {fileID: 5737888821650781017}
     _sceneVisibility: 0
     _scenePicking: 0
+  _sceneVisibilityController:
+    _enabled: 0
+    _sceneVisibility: 1
+    _scenePicking: 1
 --- !u!1 &6084442371811430133
 GameObject:
   m_ObjectHideFlags: 0
