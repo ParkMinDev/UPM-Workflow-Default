@@ -9,9 +9,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		void SetChildsSize() {
 			UnityEngine.RectTransform myRectTransform = GetComponent<UnityEngine.RectTransform>();
 			if (myRectTransform != null) {
-				UnityEngine.RectTransform[] childRectTransforms = GetComponentsInChildren<UnityEngine.RectTransform>();
-				foreach (UnityEngine.RectTransform rectTransform in childRectTransforms) {
-					if (rectTransform != transform)
+				foreach (UnityEngine.Transform child in transform) {
+					if (child is UnityEngine.RectTransform rectTransform)
 						rectTransform.sizeDelta = myRectTransform.sizeDelta;
 				}
 			}
