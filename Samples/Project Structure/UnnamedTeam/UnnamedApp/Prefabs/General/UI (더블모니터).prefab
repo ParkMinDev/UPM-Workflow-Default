@@ -154,10 +154,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7902760543653087075}
-    - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6465667338851829317}
+      addedObject: {fileID: 3951818145217162283}
   m_SourcePrefab: {fileID: 100100000, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
 --- !u!224 &1965036962399404283 stripped
 RectTransform:
@@ -169,7 +166,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
   m_PrefabInstance: {fileID: 1078433510816828048}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7902760543653087075
+--- !u!114 &3951818145217162283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,38 +175,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3448552239348217827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c7eb1eeb8a6af439da556de4622140, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &6465667338851829317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3448552239348217827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522081d901abf144dabb52c147338ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.DestroyOnAwake
-  _gameObjects: []
-  _components:
-  - {fileID: 7902760543653087075}
+  m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.EditorUILayout
+  _autoLayout: 1
+  _mode: 0
+  _horizontalDirection: 0
+  _verticalDirection: 0
+  _columns: 3
+  _spacing: {x: 0, y: 0}
+  _resizeChildren: 1
+  _childSize: {x: 1920, y: 1080}
+  _includeInactive: 0
+  _excludedChildren: []
 --- !u!1001 &1883845462280192873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,10 +361,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3214559319578949021}
-    - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7978599646883270118}
+      addedObject: {fileID: 8477461376628789761}
   m_SourcePrefab: {fileID: 100100000, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
 --- !u!224 &5769383355317623424 stripped
 RectTransform:
@@ -398,7 +373,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
   m_PrefabInstance: {fileID: 5017745269040287979}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3214559319578949021
+--- !u!114 &8477461376628789761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -407,38 +382,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7245859491968462232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c7eb1eeb8a6af439da556de4622140, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &7978599646883270118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7245859491968462232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522081d901abf144dabb52c147338ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.DestroyOnAwake
-  _gameObjects: []
-  _components:
-  - {fileID: 3214559319578949021}
+  m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.EditorUILayout
+  _autoLayout: 1
+  _mode: 0
+  _horizontalDirection: 0
+  _verticalDirection: 0
+  _columns: 3
+  _spacing: {x: 0, y: 0}
+  _resizeChildren: 1
+  _childSize: {x: 1920, y: 1080}
+  _includeInactive: 0
+  _excludedChildren: []
 --- !u!1001 &6334146261785851432
 PrefabInstance:
   m_ObjectHideFlags: 0

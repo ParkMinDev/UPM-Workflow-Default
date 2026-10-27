@@ -4,6 +4,18 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [12.1.0] - 2026-10-27
+
+### Added
+- Add EditorUILayout with edit-only horizontal, vertical and configurable-column grid arrangement, independent fill directions, Spacing, inactive/excluded children, optional child resizing, automatic updates, manual arrangement and Undo/prefab override support. Child anchors, pivots and Z positions are preserved; player builds contain settings only.
+- Share one width/height setting between grid cells and child sizing, remove cell-internal alignment, and present grouped Korean settings, direction controls and the manual button using Odin attributes without a custom inspector.
+- Default new components to zero Spacing and a shared child/cell size of 1920 by 1080.
+- Align the first child's bounds with the parent's actual top-left corner without changing anchors or pivots. Extend placement right/left for horizontal layouts, down/up for vertical layouts, and in signed column/row directions for grids while preserving sibling order. Update placement when the parent resizes.
+- Keep the first child/grid cell at the same start position in either direction; correct the initial left/up offset while retaining spacing between differently sized children.
+
+### Changed
+- Move sample assets from Samples~ to Samples while preserving asset GUIDs, update package sample paths, and use EditorUILayout in the standard and dual-monitor UI prefabs.
+
 ## [12.0.2] - 2026-10-27
 
 ### Changed

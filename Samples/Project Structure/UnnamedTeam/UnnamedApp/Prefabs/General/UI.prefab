@@ -218,17 +218,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1231581836401156756}
-    - targetCorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2641509173033350452}
+      addedObject: {fileID: 6765733602686362543}
   m_SourcePrefab: {fileID: 100100000, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
 --- !u!1 &290075591416587465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2390543260287712627, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
   m_PrefabInstance: {fileID: 2678063271801690554}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1231581836401156756
+--- !u!114 &6765733602686362543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,38 +234,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 290075591416587465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: b1c7eb1eeb8a6af439da556de4622140, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &2641509173033350452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290075591416587465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522081d901abf144dabb52c147338ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ParkMinDev.UPM.Foundation::ParkMinDev.UPM.Foundation.Components.DestroyOnAwake
-  _gameObjects: []
-  _components:
-  - {fileID: 1231581836401156756}
+  m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.EditorUILayout
+  _autoLayout: 1
+  _mode: 0
+  _horizontalDirection: 0
+  _verticalDirection: 0
+  _columns: 3
+  _spacing: {x: 0, y: 0}
+  _resizeChildren: 1
+  _childSize: {x: 1920, y: 1080}
+  _includeInactive: 0
+  _excludedChildren: []
 --- !u!224 &3501565752266953681 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1563429826038663787, guid: f989f202f657bd14eb6e94b63e2b4173, type: 3}
