@@ -30,7 +30,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		}
 
 #if UNITY_EDITOR
-		[Button("속성 변경 되돌리기"), BoxGroup("하위 레이아웃"), ShowIf(nameof(_controlLayouts)), PropertyOrder(3), DisableInPlayMode]
+		[Button("속성 변경 되돌리기"), BoxGroup("하위 레이아웃"), ShowIf(nameof(_controlLayouts)), PropertyOrder(4), DisableInPlayMode]
 		public void RevertPropertyChanges() {
 			if (!_controlLayouts || UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
 				return;
@@ -58,6 +58,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 					while (property.Next(enterChildren)) {
 						enterChildren = !structuralProperties.Contains(property.propertyPath.Split('.')[0]);
 						if (!enterChildren || !property.prefabOverride)
+							continue;
+						if (!_includeObjectNames && target is GameObject && property.propertyPath == "m_Name")
 							continue;
 						propertyPaths.Add(property.propertyPath);
 						enterChildren = false;
@@ -117,6 +119,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		[SerializeField, BoxGroup("배치 대상"), LabelText("제외할 자식"), ShowIf(nameof(_arrangeChildren)), DisableInPlayMode] RectTransform[] _excludedChildren = Array.Empty<RectTransform>();
 
 		[SerializeField, BoxGroup("하위 레이아웃"), LabelText("Awake에서 레이아웃 켜기"), ShowIf(nameof(_controlLayouts)), DisableInPlayMode] bool _enableLayoutsOnAwake;
+		[SerializeField, BoxGroup("하위 레이아웃"), LabelText("오브젝트 이름 포함"), ShowIf(nameof(_controlLayouts)), PropertyOrder(3), DisableInPlayMode] bool _includeObjectNames;
 
 #if UNITY_EDITOR
 		[Button("지금 배치", ButtonSizes.Medium), BoxGroup("배치"), ShowIf(nameof(_arrangeChildren)), DisableInPlayMode]
