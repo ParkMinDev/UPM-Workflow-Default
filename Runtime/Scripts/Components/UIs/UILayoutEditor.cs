@@ -82,8 +82,11 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 				return;
 			Behaviour[] layouts = GetComponentsInChildren<Behaviour>(true).Where(component => component is ContentSizeFitter || component is LayoutGroup || component is AspectRatioFitter || component is ScrollRect || component is Scrollbar).ToArray();
 #if UNITY_EDITOR
-			if (Application.isPlaying == false)
-				UnityEditor.Undo.RecordObjects(layouts.Cast<UnityEngine.Object>().ToArray(), enabled ? "Enable layouts" : "Disable layouts");
+			RectTransform[] rectTransforms = Array.Empty<RectTransform>();
+			if (Application.isPlaying == false) {
+				rectTransforms = layouts.Select(layout => layout.transform).OfType<RectTransform>().Distinct().ToArray();
+				UnityEditor.Undo.RecordObjects(layouts.Cast<UnityEngine.Object>().Concat(rectTransforms).ToArray(), enabled ? "Enable layouts" : "Disable layouts");
+			}
 #endif
 			foreach (Behaviour layout in layouts) {
 				layout.enabled = enabled;
@@ -103,6 +106,37 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 				}
 #endif
 			}
+#if UNITY_EDITOR
+			// 원본과 동일한 RectTransform 오버라이드 정리
+			foreach (RectTransform rectTransform in rectTransforms) {
+				if (rectTransform == null || !UnityEditor.PrefabUtility.IsPartOfPrefabInstance(rectTransform))
+					continue;
+				RectTransform source = UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(rectTransform);
+				if (source == null)
+					continue;
+				UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(rectTransform);
+				using UnityEditor.SerializedObject serialized = new UnityEditor.SerializedObject(rectTransform);
+				using UnityEditor.SerializedObject original = new UnityEditor.SerializedObject(source);
+				string[] geometryProperties = { "m_LocalPosition", "m_LocalRotation", "m_LocalEulerAnglesHint", "m_LocalScale", "m_AnchorMin", "m_AnchorMax", "m_AnchoredPosition", "m_SizeDelta", "m_Pivot", "m_ConstrainProportionsScale" };
+				List<string> redundantProperties = new List<string>();
+				UnityEditor.SerializedProperty property = serialized.GetIterator();
+				bool enterChildren = true;
+				while (property.Next(enterChildren)) {
+					enterChildren = geometryProperties.Contains(property.propertyPath.Split('.')[0]);
+					if (!enterChildren || !property.prefabOverride || property.isDefaultOverride)
+						continue;
+					UnityEditor.SerializedProperty sourceProperty = original.FindProperty(property.propertyPath);
+					if (sourceProperty != null && UnityEditor.SerializedProperty.DataEquals(property, sourceProperty)) {
+						redundantProperties.Add(property.propertyPath);
+						enterChildren = false;
+					}
+				}
+				foreach (string propertyPath in redundantProperties) {
+					serialized.Update();
+					UnityEditor.PrefabUtility.RevertPropertyOverride(serialized.FindProperty(propertyPath), UnityEditor.InteractionMode.UserAction);
+				}
+			}
+#endif
 		}
 
 		// - Class Struct Enum -
