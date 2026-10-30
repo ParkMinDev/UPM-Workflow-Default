@@ -4,6 +4,13 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [14.0.0] - 2026-10-30
+
+### Changed
+- Rename UILayoutEditor and its editor controller to UIEditor and UIEditorController, preserving both script GUIDs and recording the previous component name with MovedFrom.
+- Move object-name selection and property reversion into a dedicated Prefab Overrides section controlled by an independent, default-off Prefab Override Control toggle.
+- Exclude RectTransforms on all prefab instance roots, including nested prefab roots, from property reversion. Other components and non-root RectTransforms retain their existing behavior.
+
 ## [13.1.1] - 2026-10-30
 
 ### Fixed

@@ -9,13 +9,13 @@ using UnityEngine.UI;
 
 namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 {
-	[DefaultExecutionOrder(-2), DisallowMultipleComponent, RequireComponent(typeof(RectTransform)), AddComponentMenu("ParkMinDev/Workflow/UI Layout Editor")]
-	[MovedFrom(true, "ParkMinDev.UPM.Workflow.Default.Components.UIs", "ParkMinDev.UPM.Workflow.Default", "EditorUILayout")]
-	public sealed class UILayoutEditor : MonoBehaviour
+	[DefaultExecutionOrder(-2), DisallowMultipleComponent, RequireComponent(typeof(RectTransform)), AddComponentMenu("ParkMinDev/Workflow/UI Editor")]
+	[MovedFrom(true, "ParkMinDev.UPM.Workflow.Default.Components.UIs", "ParkMinDev.UPM.Workflow.Default", "UILayoutEditor")]
+	public sealed class UIEditor : MonoBehaviour
 	{
 #if UNITY_EDITOR
 		// - Public Statics -
-		public static event Action<UILayoutEditor> ArrangeRequested;
+		public static event Action<UIEditor> ArrangeRequested;
 #endif
 
 		// - Public Methods -
@@ -30,9 +30,9 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		}
 
 #if UNITY_EDITOR
-		[Button("속성 변경 되돌리기"), BoxGroup("하위 레이아웃"), ShowIf(nameof(_controlLayouts)), PropertyOrder(4), DisableInPlayMode]
+		[Button("속성 변경 되돌리기"), BoxGroup("프리팹 오버라이드"), ShowIf(nameof(_controlPrefabOverrides)), PropertyOrder(4), DisableInPlayMode]
 		public void RevertPropertyChanges() {
-			if (!_controlLayouts || UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
+			if (!_controlPrefabOverrides || UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
 				return;
 			UnityEngine.Object[] targets = GetComponentsInChildren<Transform>(true).SelectMany(child => new UnityEngine.Object[] { child.gameObject }.Concat(child.GetComponents<Component>().Where(component => component != null))).ToArray();
 			string[] structuralProperties = { "m_Component", "m_Father", "m_Children", "m_RootOrder", "m_GameObject", "m_CorrespondingSourceObject", "m_PrefabInstance", "m_PrefabAsset", "m_Script" };
@@ -44,6 +44,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 			try {
 				foreach (UnityEngine.Object target in targets) {
 					if (target == null || !UnityEditor.PrefabUtility.IsPartOfPrefabInstance(target))
+						continue;
+					if (target is RectTransform rectTransform && UnityEditor.PrefabUtility.IsAnyPrefabInstanceRoot(rectTransform.gameObject))
 						continue;
 					UnityEngine.Object source = UnityEditor.PrefabUtility.GetCorrespondingObjectFromSource(target);
 					if (source == null)
@@ -104,6 +106,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		[Title(Headers.Settings)]
 		[SerializeField, LabelText("자식 배치 사용"), DisableInPlayMode] bool _arrangeChildren;
 		[SerializeField, LabelText("하위 레이아웃 제어 사용"), DisableInPlayMode] bool _controlLayouts;
+		[SerializeField, LabelText("프리팹 오버라이드 제어 사용"), DisableInPlayMode] bool _controlPrefabOverrides;
 
 		[SerializeField, BoxGroup("배치"), LabelText("자동 갱신"), ShowIf(nameof(_arrangeChildren)), DisableInPlayMode] bool _autoLayout;
 		[SerializeField, BoxGroup("배치"), LabelText("방식"), EnumToggleButtons, ShowIf(nameof(_arrangeChildren)), DisableInPlayMode] LayoutMode _mode;
@@ -119,7 +122,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Components.UIs
 		[SerializeField, BoxGroup("배치 대상"), LabelText("제외할 자식"), ShowIf(nameof(_arrangeChildren)), DisableInPlayMode] RectTransform[] _excludedChildren = Array.Empty<RectTransform>();
 
 		[SerializeField, BoxGroup("하위 레이아웃"), LabelText("Awake에서 레이아웃 켜기"), ShowIf(nameof(_controlLayouts)), DisableInPlayMode] bool _enableLayoutsOnAwake;
-		[SerializeField, BoxGroup("하위 레이아웃"), LabelText("오브젝트 이름 포함"), ShowIf(nameof(_controlLayouts)), PropertyOrder(3), DisableInPlayMode] bool _includeObjectNames;
+
+		[SerializeField, BoxGroup("프리팹 오버라이드"), LabelText("오브젝트 이름 포함"), ShowIf(nameof(_controlPrefabOverrides)), PropertyOrder(3), DisableInPlayMode] bool _includeObjectNames;
 
 #if UNITY_EDITOR
 		[Button("지금 배치", ButtonSizes.Medium), BoxGroup("배치"), ShowIf(nameof(_arrangeChildren)), DisableInPlayMode]
