@@ -4,6 +4,13 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [13.1.0] - 2026-10-30
+
+### Changed
+- Replace automatic redundant-override cleanup during layout toggles with a separate Revert Property Changes button below Disable Layouts.
+- Restore differing property overrides on the owner and every descendant GameObject and component, including inactive children, to their prefab source values. Preserve added/removed objects and components and structural hierarchy/component-list records.
+- Group the Editor-only property restoration into one Undo operation and update the usage documentation.
+
 ## [13.0.1] - 2026-10-30
 
 ### Fixed
