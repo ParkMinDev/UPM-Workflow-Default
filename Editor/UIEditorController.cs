@@ -13,7 +13,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
     {
         // - Public Statics -
         public static void Arrange(UIEditor layout) {
-            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || !layout.ArrangeChildren || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
+            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
                 return;
 
             RectTransform[] children = GetChildren(layout);
@@ -22,12 +22,26 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
                 return;
             }
 
+            // 자식 크기 적용
+            bool changed = false;
+            foreach (RectTransform child in children) {
+                if ((child.rect.size - layout.ChildSize).sqrMagnitude <= 0.000001f)
+                    continue;
+                Undo.RecordObject(child, "Resize UI Children");
+                child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, layout.ChildSize.x);
+                child.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, layout.ChildSize.y);
+                if (PrefabUtility.IsPartOfPrefabInstance(child))
+                    PrefabUtility.RecordPrefabInstancePropertyModifications(child);
+                EditorUtility.SetDirty(child);
+                changed = true;
+            }
+
             // 자식 영역 계산
             Rect[] bounds = new Rect[children.Length];
             Vector3[] corners = new Vector3[4];
             for (int i = 0; i < children.Length; i++) {
                 RectTransform child = children[i];
-                Rect rectangle = layout.ResizeChildren ? new Rect(Vector2.Scale(-child.pivot, layout.ChildSize), layout.ChildSize) : child.rect;
+                Rect rectangle = child.rect;
                 corners[0] = new Vector3(rectangle.xMin, rectangle.yMin);
                 corners[1] = new Vector3(rectangle.xMin, rectangle.yMax);
                 corners[2] = new Vector3(rectangle.xMax, rectangle.yMax);
@@ -49,7 +63,6 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
             float horizontalSign = layout.HorizontalOrder == UIEditor.HorizontalDirection.LeftToRight ? 1f : -1f;
             float verticalSign = layout.VerticalOrder == UIEditor.VerticalDirection.TopToBottom ? -1f : 1f;
             float cursor = 0f;
-            bool changed = false;
 
             // 자식 위치 기록
             for (int i = 0; i < children.Length; i++) {
@@ -70,15 +83,10 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
                 }
 
                 Vector3 position = new Vector3(topLeft.x - bounds[i].xMin, topLeft.y - bounds[i].yMax, child.localPosition.z);
-                bool resize = layout.ResizeChildren && (child.rect.size - layout.ChildSize).sqrMagnitude > 0.000001f;
-                if ((child.localPosition - position).sqrMagnitude <= 0.000001f && !resize)
+                if ((child.localPosition - position).sqrMagnitude <= 0.000001f)
                     continue;
 
                 Undo.RecordObject(child, "Arrange UI Children");
-                if (resize) {
-                    child.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, layout.ChildSize.x);
-                    child.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, layout.ChildSize.y);
-                }
                 child.localPosition = position;
                 if (PrefabUtility.IsPartOfPrefabInstance(child))
                     PrefabUtility.RecordPrefabInstancePropertyModifications(child);
@@ -104,7 +112,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
                 return;
             _nextCheckTime = EditorApplication.timeSinceStartup + 0.15d;
 
-            UIEditor[] layouts = Resources.FindObjectsOfTypeAll<UIEditor>().Where(layout => layout.isActiveAndEnabled && layout.ArrangeChildren && layout.AutoLayout && !EditorUtility.IsPersistent(layout) && layout.gameObject.scene.IsValid()).ToArray();
+            UIEditor[] layouts = Resources.FindObjectsOfTypeAll<UIEditor>().Where(layout => layout.isActiveAndEnabled && layout.AutoLayout && !EditorUtility.IsPersistent(layout) && layout.gameObject.scene.IsValid()).ToArray();
             foreach (UIEditor removed in _layoutHashes.Keys.Except(layouts).ToArray())
                 _layoutHashes.Remove(removed);
             foreach (UIEditor layout in layouts) {
@@ -135,12 +143,12 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
         static int GetLayoutHash(UIEditor layout) {
             HashCode hash = new HashCode();
             hash.Add(((RectTransform)layout.transform).rect);
+            hash.Add(layout.CellSize);
             hash.Add(layout.Mode);
             hash.Add(layout.HorizontalOrder);
             hash.Add(layout.VerticalOrder);
             hash.Add(layout.Spacing);
             hash.Add(layout.Columns);
-            hash.Add(layout.ResizeChildren);
             hash.Add(layout.ChildSize);
             foreach (RectTransform child in GetChildren(layout)) {
                 hash.Add(child.GetHashCode());
