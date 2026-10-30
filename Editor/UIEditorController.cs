@@ -13,7 +13,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
     {
         // - Public Statics -
         public static void Arrange(UIEditor layout) {
-            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
+            if (EditorApplication.isPlaying || EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
                 return;
 
             RectTransform[] children = GetChildren(layout);
@@ -108,7 +108,7 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
 
         // - Handler -
         static void Update() {
-            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.timeSinceStartup < _nextCheckTime)
+            if (EditorApplication.isPlaying || EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || EditorApplication.timeSinceStartup < _nextCheckTime)
                 return;
             _nextCheckTime = EditorApplication.timeSinceStartup + 0.15d;
 
