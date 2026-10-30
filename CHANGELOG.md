@@ -4,6 +4,16 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [13.0.0] - 2026-10-30
+
+### Changed
+- Rename EditorUILayout to UILayoutEditor and its editor controller while preserving script GUIDs and the previous component identity through MovedFrom.
+- Default all feature switches to disabled and hide inactive feature settings and buttons. Existing sample placement settings remain enabled explicitly.
+
+### Added
+- Integrate descendant layout enable/disable buttons, Undo and prefab override handling, and optional Awake restoration with execution order -2.
+- Separate child arrangement from automatic updates so manual arrangement remains available when automatic updates are disabled.
+
 ## [12.1.0] - 2026-10-27
 
 ### Added

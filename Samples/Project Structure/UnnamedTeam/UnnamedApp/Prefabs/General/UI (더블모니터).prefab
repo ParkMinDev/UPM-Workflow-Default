@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c7eb1eeb8a6af439da556de4622140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.EditorUILayout
+  _arrangeChildren: 1
+  _controlLayouts: 0
   _autoLayout: 1
   _mode: 0
   _horizontalDirection: 0
@@ -188,6 +190,7 @@ MonoBehaviour:
   _childSize: {x: 1920, y: 1080}
   _includeInactive: 0
   _excludedChildren: []
+  _enableLayoutsOnAwake: 0
 --- !u!1001 &1883845462280192873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c7eb1eeb8a6af439da556de4622140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ParkMinDev.UPM.Workflow.Default::ParkMinDev.UPM.Workflow.Default.Components.UIs.EditorUILayout
+  _arrangeChildren: 1
+  _controlLayouts: 0
   _autoLayout: 1
   _mode: 0
   _horizontalDirection: 0
@@ -395,6 +400,7 @@ MonoBehaviour:
   _childSize: {x: 1920, y: 1080}
   _includeInactive: 0
   _excludedChildren: []
+  _enableLayoutsOnAwake: 0
 --- !u!1001 &6334146261785851432
 PrefabInstance:
   m_ObjectHideFlags: 0

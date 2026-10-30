@@ -9,11 +9,11 @@ using UnityEngine;
 namespace ParkMinDev.UPM.Workflow.Default.Editor
 {
     [InitializeOnLoad]
-    public static class EditorUILayoutController
+    public static class UILayoutEditorController
     {
         // - Public Statics -
-        public static void Arrange(EditorUILayout layout) {
-            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
+        public static void Arrange(UILayoutEditor layout) {
+            if (EditorApplication.isPlayingOrWillChangePlaymode || EditorApplication.isCompiling || layout == null || !layout.ArrangeChildren || EditorUtility.IsPersistent(layout) || !layout.gameObject.scene.IsValid())
                 return;
 
             RectTransform[] children = GetChildren(layout);
@@ -46,8 +46,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
             int columns = Mathf.Min(layout.Columns, children.Length);
             Rect parentRect = ((RectTransform)layout.transform).rect;
             Vector2 origin = new Vector2(parentRect.xMin, parentRect.yMax);
-            float horizontalSign = layout.HorizontalOrder == EditorUILayout.HorizontalDirection.LeftToRight ? 1f : -1f;
-            float verticalSign = layout.VerticalOrder == EditorUILayout.VerticalDirection.TopToBottom ? -1f : 1f;
+            float horizontalSign = layout.HorizontalOrder == UILayoutEditor.HorizontalDirection.LeftToRight ? 1f : -1f;
+            float verticalSign = layout.VerticalOrder == UILayoutEditor.VerticalDirection.TopToBottom ? -1f : 1f;
             float cursor = 0f;
             bool changed = false;
 
@@ -55,11 +55,11 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
             for (int i = 0; i < children.Length; i++) {
                 RectTransform child = children[i];
                 Vector2 topLeft;
-                if (layout.Mode == EditorUILayout.LayoutMode.Horizontal) {
+                if (layout.Mode == UILayoutEditor.LayoutMode.Horizontal) {
                     topLeft = new Vector2(origin.x + cursor + (horizontalSign < 0f ? bounds[0].width - bounds[i].width : 0f), origin.y);
                     cursor += horizontalSign * (bounds[i].width + layout.Spacing.x);
                 }
-                else if (layout.Mode == EditorUILayout.LayoutMode.Vertical) {
+                else if (layout.Mode == UILayoutEditor.LayoutMode.Vertical) {
                     topLeft = new Vector2(origin.x, origin.y + cursor + (verticalSign > 0f ? bounds[i].height - bounds[0].height : 0f));
                     cursor += verticalSign * (bounds[i].height + layout.Spacing.y);
                 }
@@ -92,8 +92,8 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
         }
 
         // - Construct -
-        static EditorUILayoutController() {
-            EditorUILayout.ArrangeRequested += Arrange;
+        static UILayoutEditorController() {
+            UILayoutEditor.ArrangeRequested += Arrange;
             EditorApplication.update += Update;
             Undo.undoRedoPerformed += OnUndoRedo;
         }
@@ -104,10 +104,10 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
                 return;
             _nextCheckTime = EditorApplication.timeSinceStartup + 0.15d;
 
-            EditorUILayout[] layouts = Resources.FindObjectsOfTypeAll<EditorUILayout>().Where(layout => layout.isActiveAndEnabled && layout.AutoLayout && !EditorUtility.IsPersistent(layout) && layout.gameObject.scene.IsValid()).ToArray();
-            foreach (EditorUILayout removed in _layoutHashes.Keys.Except(layouts).ToArray())
+            UILayoutEditor[] layouts = Resources.FindObjectsOfTypeAll<UILayoutEditor>().Where(layout => layout.isActiveAndEnabled && layout.ArrangeChildren && layout.AutoLayout && !EditorUtility.IsPersistent(layout) && layout.gameObject.scene.IsValid()).ToArray();
+            foreach (UILayoutEditor removed in _layoutHashes.Keys.Except(layouts).ToArray())
                 _layoutHashes.Remove(removed);
-            foreach (EditorUILayout layout in layouts) {
+            foreach (UILayoutEditor layout in layouts) {
                 int hash = GetLayoutHash(layout);
                 if (_layoutHashes.TryGetValue(layout, out int previousHash) && previousHash == hash)
                     continue;
@@ -116,23 +116,23 @@ namespace ParkMinDev.UPM.Workflow.Default.Editor
         }
 
         static void OnUndoRedo() {
-            foreach (EditorUILayout layout in _layoutHashes.Keys.ToArray()) {
+            foreach (UILayoutEditor layout in _layoutHashes.Keys.ToArray()) {
                 if (layout != null)
                     _layoutHashes[layout] = GetLayoutHash(layout);
             }
         }
 
         // - Private Statics -
-        static readonly Dictionary<EditorUILayout, int> _layoutHashes = new Dictionary<EditorUILayout, int>();
+        static readonly Dictionary<UILayoutEditor, int> _layoutHashes = new Dictionary<UILayoutEditor, int>();
         static double _nextCheckTime;
 
-        static RectTransform[] GetChildren(EditorUILayout layout) {
+        static RectTransform[] GetChildren(UILayoutEditor layout) {
             return layout.transform.Cast<Transform>().OfType<RectTransform>()
                 .Where(child => (layout.IncludeInactive || child.gameObject.activeSelf) && !layout.ExcludedChildren.Contains(child))
                 .ToArray();
         }
 
-        static int GetLayoutHash(EditorUILayout layout) {
+        static int GetLayoutHash(UILayoutEditor layout) {
             HashCode hash = new HashCode();
             hash.Add(((RectTransform)layout.transform).rect);
             hash.Add(layout.Mode);
